@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sri Lakshmi Ganapathi Temple - Anna Samaradhana</title>
+    
+    <!-- Meta tags for premium SEO indexing -->
+    <meta name="description" content="Contribute to the auspicious Anna Samaradhana (Free Food Distribution) at Sri Lakshmi Ganapathi Temple. Participate in the 7th Anniversary festivities through direct, secure UPI payment.">
+    <meta name="keywords" content="Sri Lakshmi Ganapathi Temple, Anna Samaradhana, Iragavaram, UPI Payment, PhonePe">
+    <meta name="author" content="Surya Balija Sangham">
+    
+    <!-- Stylesheets & Icon Packs -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Hanging Toran/Mango Leaves Devotional Border -->
+    <div class="mango-leaves-toran" id="toran-decoration"></div>
+
+    <div class="main-wrapper">
+        <!-- Spiritual Header -->
+        <header class="temple-header">
+            <div class="temple-logo-ornament">
+                ॐ
+            </div>
+            <h1 class="spiritual-title" id="main-temple-title">శ్రీ లక్ష్మీ గణపతి ఆలయం</h1>
+            <p class="subtitle" id="main-temple-subtitle">సూర్య బలిజ సంఘం — ఇరగవరం</p>
+        </header>
+
+        <!-- Main Layout: Grid Structure -->
+        <main class="content-grid">
+            <!-- Left Side: Flyer Image Display Card -->
+            <section class="flyer-card-container">
+                <div class="flyer-card" id="flyer-tilt-card">
+                    <!-- Renders the temple invitation flyer image -->
+                    <img src="flyer.png" alt="Sri Lakshmi Ganapathi Temple Anniversary Anna Samaradhana Invitation" id="main-flyer-img">
+                </div>
+            </section>
+
+            <!-- Right Side: Details & Live Statistics Panel -->
+            <section class="details-panel">
+                <h2 class="spiritual-title" id="main-event-header" style="font-size: 2rem; margin-bottom: 1rem;">అన్న సమారాధన</h2>
+                <p class="event-highlight" id="event-title-display">7వ వార్షికోత్సవం మరియు అన్నసమారాధన మహోత్సవం</p>
+                
+                <p class="temple-description" style="line-height: 1.8; font-size: 1.05rem;">
+                    <span id="main-event-desc">
+                        శ్రీ లక్ష్మీ గణపతి ఆలయ 7వ వార్షికోత్సవం మరియు అన్న సమారాధన మహోత్సవమునకు భక్తులందరికీ ఆత్మీయ ఆహ్వానం!
+                        <br><br>
+                        సూర్య బలిజ సంఘం (ఇరగవరం) ఆధ్వర్యంలో ఏర్పాటు చేసిన ఈ పవిత్ర అన్నదాన కార్యక్రమానికి మీ వంతు విరాళాలు అందించి, స్వామి వారి కృపకు పాత్రులు కాగలరని ప్రార్థన.
+                    </span>
+                    <br><br>
+                    <strong>తేదీ:</strong> <span id="event-date-display">25-06-2026 (గురువారం)</span> <span id="event-time-display">ఉదయం 11:00 గంటల నుండి</span>.
+                    <br><br>
+                    <strong>సంప్రదించవలసిన నెంబర్లు (Contact):</strong> <span id="event-contact-display">9848022312, 7013894220</span>
+                </p>
+
+
+
+                <!-- Call to action donation button -->
+                <button class="btn-donate-now" id="btn-donate-trigger">
+                    <i class="fa-solid fa-hands-praying"></i> విరాళం అందించండి
+                </button>
+            </section>
+        </main>
+
+        <!-- Footer Area -->
+        <footer class="admin-toggler">
+            <p style="font-size: 0.85rem; color: var(--text-muted); opacity: 0.5; margin-bottom: 0.75rem;">
+                © 2026 సూర్య బలిజ సంఘం, ఇరగవరం. సర్వ హక్కులు ప్రత్యేకించబడ్డాయి.
+            </p>
+            <div style="display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; margin-top: 0.5rem;">
+                <a href="#" class="admin-link" id="admin-trigger-link">
+                    <i class="fa-solid fa-shield-halved"></i> Management Access
+                </a>
+                <a href="#" class="admin-link" id="editor-trigger-link">
+                    <i class="fa-solid fa-pen-to-square"></i> Editor Access
+                </a>
+            </div>
+        </footer>
+    </div>
+
+    <!-- ==========================================================================
+       Payment & Donation Form Modal (Single Portal SPA layout)
+       ========================================================================== -->
+    <div class="modal-overlay" id="donate-modal">
+        <div class="modal-content">
+            <button class="modal-close" id="modal-close" aria-label="Close modal">&times;</button>
+
+            <!-- =====================================================
+               COMBINED PAGE: DONATE — Amount + Details + Pay
+               (One-screen flow: fill details & pay instantly)
+               ===================================================== -->
+            <div class="modal-page active" id="page-form">
+                <div class="modal-header" style="margin-bottom: 1rem;">
+                    <h3 class="modal-title" style="font-size: 1.25rem;">🙏 విరాళం అందించండి (Make a Donation)</h3>
+                    <p style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.25rem;">మొత్తం ఎంచుకుని నేరుగా UPI ద్వారా చెల్లించండి</p>
+                </div>
+
+                <!-- ── STEP 1: Quick Amount Chips ── -->
+                <div class="quick-donate-section">
+                    <label class="form-label" style="margin-bottom: 0.6rem; display: block;">విరాళం మొత్తం ఎంచుకోండి (Select Amount)</label>
+                    <div class="chips-container" style="margin-bottom: 0.75rem;">
+                        <button type="button" class="chip" data-amount="101">₹101</button>
+                        <button type="button" class="chip" data-amount="251">₹251</button>
+                        <button type="button" class="chip" data-amount="501">₹501</button>
+                        <button type="button" class="chip" data-amount="1001">₹1,001</button>
+                        <button type="button" class="chip" data-amount="5001">₹5,001</button>
+                    </div>
+                    <!-- Custom amount row -->
+                    <div class="input-container" style="margin-bottom: 0;">
+                        <span class="amount-input-prefix">₹</span>
+                        <input type="number" id="donor-amount" class="form-input amount-input"
+                               placeholder="లేదా మొత్తం టైప్ చేయండి (or type amount)" min="1" autocomplete="off">
+                    </div>
+                </div>
+
+                <!-- ── STEP 2: Donor Details (compact inline row) ── -->
+                <div class="compact-donor-row">
+                    <div class="input-container" style="flex: 1;">
+                        <span class="input-icon"><i class="fa-solid fa-user"></i></span>
+                        <input type="text" id="donor-name" class="form-input"
+                               placeholder="పేరు (Name)" required autocomplete="name">
+                    </div>
+                    <div class="input-container" style="flex: 1;">
+                        <span class="input-icon"><i class="fa-solid fa-phone"></i></span>
+                        <input type="tel" id="donor-phone" class="form-input"
+                               placeholder="Phone Number" required pattern="[6-9][0-9]{9}" autocomplete="tel">
+                    </div>
+                </div>
+
+                <!-- ── STEP 3: Live Payment Panel (QR only) ── -->
+                <div class="live-pay-panel" id="live-pay-panel">
+                    <!-- Live QR Code -->
+                    <div class="live-qr-wrapper">
+                        <div class="qr-container" style="position: relative;">
+                            <!-- Placeholder shown when no amount is selected -->
+                            <div id="qr-placeholder" class="qr-placeholder-state">
+                                <i class="fa-solid fa-qrcode"></i>
+                                <span>మొత్తం ఎంచుకోండి</span>
+                            </div>
+                            <!-- Live QR canvas (generated instantly via pure JS) -->
+                            <canvas id="qr-canvas" class="qr-code-img" style="display:none; width: 100%; height: 100%; object-fit: contain; border-radius: 4px;"></canvas>
+                        </div>
+                        <div class="qr-text-info">
+                            <p class="pay-section-label"><i class="fa-solid fa-qrcode"></i> స్కాన్ చేసి చెల్లించండి</p>
+                            <p class="qr-subtext">
+                                Any UPI app — PhonePe, GPay, Paytm
+                            </p>
+                        </div>
+                    </div><!-- /live-qr-wrapper -->
+                </div><!-- /live-pay-panel -->
+
+                <!-- ── "I Have Paid" CTA ── -->
+
+                <button class="btn-submit" id="btn-simulated-verify">
+                    <i class="fa-solid fa-circle-check" style="font-size:1.15rem;"></i>
+                    <span class="btn-paid-text">
+                        <span class="btn-paid-main">చెల్లింపు పూర్తయింది — రశీదు పొందండి</span>
+                        <span class="btn-paid-sub">(I've Paid — Get Receipt)</span>
+                    </span>
+                </button>
+
+
+                <!-- Hidden summary spans (kept for JS compatibility) -->
+                <span id="summary-name" style="display:none;"></span>
+                <span id="summary-phone" style="display:none;"></span>
+                <span id="summary-amount" style="display:none;"></span>
+            </div>
+
+            <!-- page-pay kept as hidden alias (JS still references it, redirect to page-form) -->
+            <div class="modal-page" id="page-pay" style="display:none;"></div>
+
+            <!-- -------------------------------------------------------------
+               PAGE 3: VERIFICATION LOADER VIEW (Simulated Success Bridge)
+               ------------------------------------------------------------- -->
+            <div class="modal-page" id="page-verify">
+                <div class="verification-view">
+                    <div class="spinner-ring">
+                        <div></div><div></div><div></div><div></div>
+                    </div>
+                    <div class="status-text" id="status-text">సురక్షిత UPI లింక్‌ను ప్రారంభిస్తోంది...</div>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.5rem;">
+                        PhonePe నెట్‌వర్క్‌తో చెల్లింపు స్థితిని సరిచూస్తోంది. దయచేసి ఈ విండోను మూసివేయవద్దు.
+                    </p>
+
+                    <!-- Beautiful linear progress bar -->
+                    <div class="verification-progress-bar">
+                        <div class="progress-fill" id="progress-fill"></div>
+                    </div>
+
+                    <!-- Beautiful fallback back button -->
+                    <button type="button" class="chip" id="btn-verify-back" style="margin-top: 1rem; border-color: rgba(223, 162, 34, 0.2); color: var(--gold-secondary); border-radius: 20px; font-size: 0.85rem;">
+                        <i class="fa-solid fa-arrow-left" style="margin-right: 0.5rem;"></i> వేరే పద్ధతి ద్వారా చెల్లించండి (Choose Another Method)
+                    </button>
+                </div>
+            </div>
+
+            <!-- -------------------------------------------------------------
+               PAGE 4: DONATION RECEIPT & SUCCESS VIEW
+               ------------------------------------------------------------- -->
+            <div class="modal-page" id="page-success">
+                <div class="success-view">
+                    <div class="success-icon-container" style="background: rgba(223, 162, 34, 0.15); border-color: var(--gold-primary); box-shadow: 0 0 25px rgba(223, 162, 34, 0.4); margin: 0 auto 2rem auto; width: 80px; height: 80px; border: 3px solid var(--gold-primary); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                        <i class="fa-solid fa-hands-praying" style="font-size: 2.25rem; color: var(--gold-secondary);"></i>
+                    </div>
+
+                    <h3 class="modal-title" style="color: var(--gold-secondary); margin-bottom: 0.5rem;">వివరాలు విజయవంతంగా నమోదయ్యాయి! (Details Submitted)</h3>
+                    <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.5rem;">
+                        మీ విరాళం వివరాలు నమోదు చేయబడ్డాయి. అడ్మిన్ బ్యాంక్ స్టేట్‌మెంట్‌తో సరిచూసి రశీదును నిర్ధారిస్తారు.
+                    </p>
+
+                    <!-- Clean printed receipt card -->
+                    <div class="receipt-card">
+                        <div class="receipt-header">అధికారిక విరాళ రశీదు (OFFICIAL CONTRIBUTION RECEIPT)</div>
+                        
+                        <div class="receipt-row">
+                            <span class="receipt-lbl">దాత పేరు (Donor Name)</span>
+                            <span class="receipt-val" id="receipt-name">K. Prasad</span>
+                        </div>
+                        <div class="receipt-row">
+                            <span class="receipt-lbl">ఫోన్ నెంబర్ (Phone Number)</span>
+                            <span class="receipt-val" id="receipt-phone">9999999999</span>
+                        </div>
+                        <div class="receipt-row">
+                            <span class="receipt-lbl">సమర్పించిన విరాళం (Contributed Sum)</span>
+                            <span class="receipt-val receipt-amount" id="receipt-amount" style="color: var(--gold-secondary);">₹501.00</span>
+                        </div>
+                        <div class="receipt-row">
+                            <span class="receipt-lbl">లావాదేవీ ఐడీ (Transaction ID)</span>
+                            <span class="receipt-val" id="receipt-txn" style="font-family: monospace;">TXN932847289</span>
+                        </div>
+                        <div class="receipt-row">
+                            <span class="receipt-lbl">సమయం (Timestamp)</span>
+                            <span class="receipt-val" id="receipt-date">2026-06-01 10:20 AM</span>
+                        </div>
+                        <div class="receipt-row" style="border-top: 1px dashed rgba(255, 255, 255, 0.1); padding-top: 0.5rem; margin-top: 0.5rem;">
+                            <span class="receipt-lbl">రశీదు స్థితి (Receipt Status)</span>
+                            <span class="receipt-val" id="receipt-status" style="font-weight: 700;">పరిశీలనలో ఉంది (Awaiting Verification)</span>
+                        </div>
+                    </div>
+
+
+
+                    <button class="btn-submit" id="btn-success-close" style="margin-top: 1.25rem;">
+                        ఆశీస్సులు స్వీకరించి ముగించండి (Receive Blessings &amp; Close) <i class="fa-solid fa-hands-praying" style="margin-left: 0.5rem;"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- -------------------------------------------------------------
+               PAGE 5: MANAGEMENT PANEL VIEW (Payment Gateways & Logs)
+               ------------------------------------------------------------- -->
+            <div class="modal-page" id="page-admin" style="padding: 0; max-width: 100%;">
+                <div class="admin-panel">
+                    <div class="admin-body">
+                        <!-- Toggler header inside admin -->
+                        <div class="table-header-row" style="margin-bottom: 2rem;">
+                            <h3 class="spiritual-title" style="font-size: 1.5rem; text-shadow: none;">Management Dashboard</h3>
+                            <button class="btn-export" id="btn-admin-close" onclick="document.getElementById('modal-close').click()" style="border-color: #f44336; color: #f44336;">
+                                <i class="fa-solid fa-rectangle-xmark"></i> Exit Panel
+                            </button>
+                        </div>
+
+                        <div class="admin-grid">
+                            <!-- Left Section: active payment gateway configuration controls -->
+                            <section class="admin-sidebar">
+                                <h4 class="admin-section-title">Payment Settings</h4>
+                                
+                                <form id="admin-form">
+                                    <div class="form-group">
+                                        <label class="form-label" style="color: #e5c185;">UPI ID (Payee UPI ID)</label>
+                                        <input type="text" id="admin-upi" class="admin-input" placeholder="e.g. name@upi" required>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label class="form-label" style="color: #e5c185;">Payee Name</label>
+                                        <input type="text" id="admin-payee" class="admin-input" placeholder="e.g. Temple Name" required>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="form-label" style="color: #e5c185;">Transaction Note</label>
+                                        <input type="text" id="admin-note" class="admin-input" placeholder="e.g. Food Contribution" required>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="form-label" style="color: #e5c185;">Admin Pin</label>
+                                        <input type="password" id="admin-pin" class="admin-input" placeholder="Enter Admin Pin" required>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="form-label" style="color: #e5c185;">Editor Pin</label>
+                                        <input type="password" id="admin-editor-pin" class="admin-input" placeholder="Enter Editor Pin" required>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="form-label" style="color: #e5c185;">SMS Template (ధృవీకరణ సందేశం)</label>
+                                        <textarea id="admin-sms-template" class="admin-input" rows="4" style="font-family: inherit; resize: vertical; min-height: 80px; line-height: 1.4; margin-bottom: 0.5rem;" placeholder="విరాళం ధృవీకరించిన తర్వాత దాతకు వెళ్లే సందేశం..." required></textarea>
+                                        <small style="color: var(--text-muted); font-size: 0.72rem; display: block; margin-top: -0.75rem; margin-bottom: 0.75rem; line-height: 1.3;">
+                                            గమనిక: పేరు కోసం <strong>{NAME}</strong> మరియు మొత్తం కోసం <strong>{AMOUNT}</strong> ని ఉపయోగించండి. అవి ఆటోమేటిక్‌గా రీప్లేస్ చేయబడతాయి.
+                                        </small>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="form-label" style="color: #e5c185;">SMS Delivery Method</label>
+                                        <select id="admin-sms-method" class="admin-input" style="background: rgba(0,0,0,0.6); color:#fff; border-radius:10px; padding:0.8rem 1.1rem; width:100%; border:1px solid var(--glass-border); margin-bottom: 1.25rem;">
+                                            <option value="simulator" style="background:#141414;">Native SMS App / Simulator (Free Fallback)</option>
+                                            <optgroup label="📱 Recommended Free Android Gateways (Bypasses DLT)" style="background:#141414;">
+                                                <option value="macrodroid" style="background:#141414;">MacroDroid Webhook (Play Store Automation - Free & Easy)</option>
+                                                <option value="textbee" style="background:#141414;">Textbee.dev (Free Android Sync App)</option>
+                                                <option value="httpsms" style="background:#141414;">httpSMS (Free Android Sync App)</option>
+                                                <option value="smsgateway24" style="background:#141414;">SMS Gateway 24 (Free Android Sync App)</option>
+                                                <option value="smsgatewayapp" style="background:#141414;">Sms-Gateway.app (Free Android Sync App)</option>
+                                                <option value="semysms" style="background:#141414;">SemySMS.net (Free Android Sync App)</option>
+                                                <option value="smsgatewayme" style="background:#141414;">SMS Gateway.me (Free Android Sync App)</option>
+                                                <option value="pushbullet" style="background:#141414;">Pushbullet SMS (Free Phone Sync App)</option>
+                                            </optgroup>
+                                            <optgroup label="🇮🇳 Indian Bulk SMS Gateways (Requires DLT)" style="background:#141414;">
+                                                <option value="fast2sms" style="background:#141414;">Fast2SMS (Commercial API - India)</option>
+                                                <option value="textlocal" style="background:#141414;">Textlocal (Commercial API - India)</option>
+                                                <option value="smsalert" style="background:#141414;">SMS Alert (Commercial API - India)</option>
+                                                <option value="msg91" style="background:#141414;">Msg91 Flow API (Commercial API - India/Global)</option>
+                                            </optgroup>
+                                            <optgroup label="🌐 Global Premium SMS Gateways" style="background:#141414;">
+                                                <option value="twilio" style="background:#141414;">Twilio SMS (Premium Commercial API)</option>
+                                                <option value="vonage" style="background:#141414;">Vonage/Nexmo (Premium Commercial API)</option>
+                                            </optgroup>
+                                        </select>
+                                    </div>
+
+                                    <div id="admin-sms-api-box" style="display: none;">
+                                        <div class="form-group">
+                                            <label class="form-label" style="color: #e5c185;" id="sms-key-label">SMS API Authorization Key</label>
+                                            <input type="password" id="admin-sms-key" class="admin-input" placeholder="Enter SMS Gateway API Key/Token">
+                                        </div>
+
+                                        <!-- Dynamic Device ID Field -->
+                                        <div id="device-fields" style="display: none;">
+                                            <div class="form-group">
+                                                <label class="form-label" style="color: #e5c185;" id="device-label">Device ID</label>
+                                                <input type="text" id="admin-device-id" class="admin-input" placeholder="Enter Device ID or Identifier">
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Dynamic Account SID / Secret Field -->
+                                        <div id="extra-auth-fields" style="display: none;">
+                                            <div class="form-group">
+                                                <label class="form-label" style="color: #e5c185;" id="extra-auth-label">Account SID / API Secret</label>
+                                                <input type="text" id="admin-extra-auth" class="admin-input" placeholder="Enter Account SID or Secret">
+                                            </div>
+                                        </div>
+
+                                        <!-- Dynamic Sender Phone / Header Field -->
+                                        <div id="sender-fields" style="display: none;">
+                                            <div class="form-group">
+                                                <label class="form-label" style="color: #e5c185;" id="sender-label">Sender Phone / Header ID</label>
+                                                <input type="text" id="admin-sender-id" class="admin-input" placeholder="e.g. +1234567890 or TXTIND">
+                                            </div>
+                                        </div>
+
+                                        <!-- Dynamic MacroDroid Instructions -->
+                                        <div id="macrodroid-instructions" style="display: none; background: rgba(26,115,232,0.08); border: 1px solid rgba(26,115,232,0.25); border-radius: 8px; padding: 0.85rem; margin-top: 1rem; font-size: 0.8rem; color: #d0e1fd; line-height: 1.45;">
+                                            <i class="fa-solid fa-circle-info" style="color: #4fc3f7; margin-right: 0.5rem;"></i>
+                                            <strong>MacroDroid Setup Guide (100% Free):</strong>
+                                            <ol style="margin: 0.4rem 0 0 1.1rem; padding: 0; display: flex; flex-direction: column; gap: 0.3rem;">
+                                                <li>Install the **MacroDroid** app from the Google Play Store on your Android phone.</li>
+                                                <li>Add a new Macro: set **Trigger** to **Connectivity** &rarr; **Webhook (Trigger)**.</li>
+                                                <li>Name the webhook (e.g. <code>temple-sms</code>) and copy the unique URL it generates.</li>
+                                                <li>Add an **Action** to **Messaging** &rarr; **Send SMS**.</li>
+                                                <li>Set Destination to <code>[phone]</code> (or <code>[number]</code>), and SMS Text to <code>[message]</code> (or <code>[msg]</code>).</li>
+                                                <li>Paste the copied URL in the **Webhook URL** field above and click **Save Settings**!</li>
+                                            </ol>
+                                        </div>
+                                    </div>
+
+                                    <!-- Premium Bilingual Scan Compatibility Alert -->
+                                    <div class="payment-warning" style="background: rgba(223, 162, 34, 0.08); border: 1px solid rgba(223, 162, 34, 0.25); border-radius: 8px; padding: 0.85rem; margin-top: 1.25rem; font-size: 0.8rem; color: #fff3cc; line-height: 1.45;">
+                                        <i class="fa-solid fa-triangle-exclamation" style="color: var(--gold-secondary); margin-right: 0.5rem;"></i>
+                                        <strong>గమనిక (Important Notice):</strong> QR కోడ్ సరిగ్గా స్కాన్ కావడానికి Payee Name మరియు Transaction Note లలో కేవలం ఇంగ్లీష్ అక్షరాలు (English letters) మరియు నెంబర్లు మాత్రమే ఉపయోగించండి. తెలుగు అక్షరాలు వాడితే ఫోన్లలో స్కాన్ కాదు.
+                                    </div>
+
+                                    <button type="submit" class="btn-submit" style="margin-top: 1.5rem;">
+                                        Save Settings <i class="fa-solid fa-save" style="margin-left: 0.5rem;"></i>
+                                    </button>
+                                </form>
+                            </section>
+
+                            <!-- Right Section: transaction table histories -->
+                            <section class="admin-main">
+                                <div class="table-header-row">
+                                    <h4 class="admin-section-title" style="border: none; padding-bottom: 0; margin-bottom: 0;">Contribution History</h4>
+                                    <div style="display: flex; gap: 0.5rem;">
+                                        <button class="btn-export" id="btn-export-csv">
+                                            <i class="fa-solid fa-file-csv" style="margin-right: 0.5rem;"></i> Download CSV
+                                        </button>
+                                        <button class="btn-export" id="btn-clear-donors" style="border-color: #f44336; color: #f44336;">
+                                            <i class="fa-solid fa-trash-can" style="margin-right: 0.5rem;"></i> Clear List
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- Dynamic CMS Total Amount Cards -->
+                                <div class="admin-stats-row" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 1.5rem;">
+                                    <!-- Total Submitted -->
+                                    <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 8px; padding: 0.75rem 1rem; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">
+                                        <div id="admin-stat-total" style="font-size: 1.3rem; font-weight: 700; color: var(--gold-secondary);">₹0</div>
+                                        <div style="font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; margin-top: 0.25rem; font-weight: 600;">Total Submitted</div>
+                                    </div>
+                                    <!-- Total Confirmed -->
+                                    <div style="background: rgba(0, 230, 118, 0.05); border: 1px solid rgba(0, 230, 118, 0.15); border-radius: 8px; padding: 0.75rem 1rem; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">
+                                        <div id="admin-stat-confirmed" style="font-size: 1.3rem; font-weight: 700; color: var(--success-green);">₹0</div>
+                                        <div style="font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; margin-top: 0.25rem; font-weight: 600;">Total Confirmed</div>
+                                    </div>
+                                    <!-- Total Rejected -->
+                                    <div style="background: rgba(244, 67, 54, 0.05); border: 1px solid rgba(244, 67, 54, 0.15); border-radius: 8px; padding: 0.75rem 1rem; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">
+                                        <div id="admin-stat-rejected" style="font-size: 1.3rem; font-weight: 700; color: #f44336;">₹0</div>
+                                        <div style="font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; margin-top: 0.25rem; font-weight: 600;">Total Rejected</div>
+                                    </div>
+                                </div>
+
+                                <div class="table-container">
+                                    <table class="table-transactions">
+                                         <thead>
+                                             <tr>
+                                                 <th>Date &amp; Time</th>
+                                                 <th>Donor Name</th>
+                                                 <th>Phone Number</th>
+                                                 <th>Amount</th>
+                                                 <th>Status</th>
+                                                 <th style="text-align:center;"><i class="fa-solid fa-image" style="margin-right:4px;"></i>Proof</th>
+                                                 <th style="text-align: center;">Actions</th>
+                                             </tr>
+                                         </thead>
+                                        <tbody id="admin-table-body">
+                                            <!-- Dynamically rendered via app.js -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- -------------------------------------------------------------
+               PAGE 6: EDITOR PANEL VIEW (Landing Page Content CMS)
+               ------------------------------------------------------------- -->
+            <div class="modal-page" id="page-editor" style="padding: 0; max-width: 100%;">
+                <div class="editor-panel" style="margin: 0 auto;">
+                    <div class="editor-body">
+                        <!-- Toggler header inside editor -->
+                        <div class="table-header-row" style="margin-bottom: 2rem;">
+                            <h3 class="spiritual-title" style="font-size: 1.5rem; text-shadow: none;">ఎడిటర్ డాష్‌బోర్డ్ (Editor Dashboard)</h3>
+                            <button class="btn-export" id="btn-editor-close" onclick="document.getElementById('modal-close').click()" style="border-color: #f44336; color: #f44336;">
+                                <i class="fa-solid fa-rectangle-xmark"></i> ప్యానెల్ నుండి నిష్క్రమించు (Exit Panel)
+                            </button>
+                        </div>
+
+                        <form id="editor-form">
+                            <h4 class="admin-section-title">గేట్‌വേ కాన్ఫిగరేషన్ (Gateway Configuration)</h4>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label" style="color: #e5c185;">ఆలయ పేరు (Temple Name)</label>
+                                    <input type="text" id="editor-temple-title" class="admin-input" placeholder="e.g. శ్రీ లక్ష్మీ గణపతి ఆలయం" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label" style="color: #e5c185;">సంఘం పేరు (Association Name)</label>
+                                    <input type="text" id="editor-temple-subtitle" class="admin-input" placeholder="e.g. సూర్య బలిజ సంఘం — ఇరగవరం" required>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label" style="color: #e5c185;">కార్యక్రమ పేరు (Event Name)</label>
+                                    <input type="text" id="editor-event-header" class="admin-input" placeholder="e.g. అన్న సమారాధన" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label" style="color: #e5c185;">మహోత్సవం / హైలైట్ (Occasion / Highlight)</label>
+                                    <input type="text" id="editor-event-title" class="admin-input" placeholder="e.g. 7వ వార్షికోత్సవం మరియు అన్నసమారాధన మహోత్సవం" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label" style="color: #e5c185;">వివరణ (Devotional Description)</label>
+                                <textarea id="editor-event-desc" class="admin-input" rows="4" style="font-family: inherit; resize: vertical; min-height: 100px; line-height: 1.5;" placeholder="కార్యక్రమం పూర్తి వివరాలను ఇక్కడ రాయండి..." required></textarea>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label" style="color: #e5c185;">తేదీ (Event Date)</label>
+                                    <input type="text" id="editor-event-date" class="admin-input" placeholder="e.g. 25-06-2026 (గురువారం)" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label" style="color: #e5c185;">సమయం (Event Time)</label>
+                                    <input type="text" id="editor-event-time" class="admin-input" placeholder="e.g. ఉదయం 11:00 గంటల నుండి" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label" style="color: #e5c185;">సంప్రదించవలసిన నెంబర్లు (Contact Numbers)</label>
+                                <input type="text" id="editor-contact" class="admin-input" placeholder="e.g. 9848022312, 7013894220" required>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label" style="color: #e5c185;">ప్రధాన పేజీ రంగు/థీమ్ (Main Page Theme)</label>
+                                    <!-- Premium Custom Color Bar -->
+                                    <div class="color-bar-container" style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap; margin-top: 0.5rem; background: rgba(0,0,0,0.3); padding: 0.75rem 1rem; border-radius: 30px; border: 1px solid var(--glass-border);">
+                                        <!-- Spiritual Green -->
+                                        <button type="button" class="color-chip active" data-color="#0c3813" style="width: 28px; height: 28px; border-radius: 50%; background: #0c3813; border: 2px solid #ffffff; cursor: pointer; transition: transform 0.2s; box-shadow: 0 0 10px rgba(12,56,19,0.5);" title="Spiritual Green"></button>
+                                        <!-- Auspicious Saffron -->
+                                        <button type="button" class="color-chip" data-color="#b21f1f" style="width: 28px; height: 28px; border-radius: 50%; background: #b21f1f; border: 2px solid rgba(255,255,255,0.2); cursor: pointer; transition: transform 0.2s;" title="Auspicious Saffron"></button>
+                                        <!-- Divine Blue -->
+                                        <button type="button" class="color-chip" data-color="#051c47" style="width: 28px; height: 28px; border-radius: 50%; background: #051c47; border: 2px solid rgba(255,255,255,0.2); cursor: pointer; transition: transform 0.2s;" title="Divine Blue"></button>
+                                        <!-- Sacred Purple -->
+                                        <button type="button" class="color-chip" data-color="#290547" style="width: 28px; height: 28px; border-radius: 50%; background: #290547; border: 2px solid rgba(255,255,255,0.2); cursor: pointer; transition: transform 0.2s;" title="Sacred Purple"></button>
+                                        <!-- Sacred Gold/Amber -->
+                                        <button type="button" class="color-chip" data-color="#b87b0c" style="width: 28px; height: 28px; border-radius: 50%; background: #b87b0c; border: 2px solid rgba(255,255,255,0.2); cursor: pointer; transition: transform 0.2s;" title="Sacred Gold/Amber"></button>
+                                        <!-- Devotional Teal -->
+                                        <button type="button" class="color-chip" data-color="#004d40" style="width: 28px; height: 28px; border-radius: 50%; background: #004d40; border: 2px solid rgba(255,255,255,0.2); cursor: pointer; transition: transform 0.2s;" title="Devotional Teal"></button>
+                                        <!-- Royal Maroon -->
+                                        <button type="button" class="color-chip" data-color="#4a0007" style="width: 28px; height: 28px; border-radius: 50%; background: #4a0007; border: 2px solid rgba(255,255,255,0.2); cursor: pointer; transition: transform 0.2s;" title="Royal Maroon"></button>
+                                        
+                                        <!-- Spacer line -->
+                                        <div style="width: 1px; height: 20px; background: rgba(255,255,255,0.15); margin: 0 0.25rem;"></div>
+                                        
+                                        <!-- Dynamic Color Picker Button -->
+                                        <div class="custom-color-wrapper" style="position: relative; display: flex; align-items: center;">
+                                            <input type="color" id="editor-theme-picker" value="#0c3813" style="opacity: 0; position: absolute; top: 0; left: 0; width: 28px; height: 28px; cursor: pointer; z-index: 2;">
+                                            <button type="button" id="custom-color-btn" style="width: 28px; height: 28px; border-radius: 50%; background: linear-gradient(45deg, red, orange, yellow, green, blue, purple); border: 2px solid rgba(255,255,255,0.2); cursor: pointer; position: relative; z-index: 1; transition: transform 0.2s; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 8px rgba(0,0,0,0.3);" title="Custom Color Picker">
+                                                <i class="fa-solid fa-plus" style="font-size: 0.7rem; color: #ffffff; text-shadow: 0 1px 2px rgba(0,0,0,0.8);"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <input type="hidden" id="editor-theme" value="#0c3813">
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label" style="color: #e5c185;">ఆహ్వాన పత్రిక (Flyer Image)</label>
+                                    <input type="file" id="editor-flyer-file" class="admin-input" accept="image/*" style="padding: 0.5rem;">
+                                    <small style="color: var(--text-muted); font-size: 0.75rem; display: block; margin-top: -0.5rem; margin-bottom: 0.5rem;">కొత్త ఆలయ ఆహ్వాన పత్రికను అప్‌లోడ్ చేయండి</small>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn-submit" style="margin-top: 1.5rem;">
+                                సెట్టింగులను సేవ్ చేయి (Save Settings) <i class="fa-solid fa-save" style="margin-left: 0.5rem;"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Canvas Particle wrapper for celebratory confetti -->
+    <canvas id="confetti-canvas"></canvas>
+
+    <!-- Load Firebase SDK Compat libraries -->
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+
+    <!-- Load QRious client-side instant QR generator library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
+
+    <!-- Load active scripts at DOM foot -->
+    <script src="app.js"></script>
+</body>
+</html>
